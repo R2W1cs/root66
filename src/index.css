@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #C41E3A;
+  --color-primary-dark: #A01830;
+  --color-secondary: #1E3A5F;
+  --color-accent: #F4C542;
+  --color-neutral: #F8F5F0;
+  --color-dark: #2C2C2C;
+  --color-glass: rgba(248, 245, 240, 0.92);
+
+  --font-heading: "Bebas Neue", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-accent: "Playfair Display", serif;
+
+  --animate-neon-flicker: neon-flicker 2s infinite alternate;
+}
+
+@layer base {
+  body {
+    @apply font-body bg-neutral text-dark antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-wider;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-glass backdrop-blur-md border border-white/20 shadow-xl;
+  }
+  
+  .neon-text-primary {
+    text-shadow: 0 0 5px #C41E3A, 0 0 10px #C41E3A, 0 0 20px #C41E3A, 0 0 40px #C41E3A;
+  }
+  
+  .neon-text-accent {
+    text-shadow: 0 0 5px #F4C542, 0 0 10px #F4C542, 0 0 20px #F4C542, 0 0 40px #F4C542;
+  }
+
+  .neon-border-primary {
+    box-shadow: 0 0 5px #C41E3A, 0 0 10px #C41E3A, inset 0 0 5px #C41E3A;
+    border-color: #C41E3A;
+  }
+}
+
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.5;
+  }
+}
